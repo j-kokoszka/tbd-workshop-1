@@ -27,7 +27,22 @@ in profiles.yml.
 
 4. In the notebook, collect console output from dbt run, then parse it and retrieve total execution time and execution times of processing each model. Save the results from each number of executors. 
 
+
+Exec 1: Finished running 43 table models in 1 hours 27 minutes and 44.88 seconds (5264.88s)
+
+Exec 2: Finished running 43 table models in 0 hours 46 minutes and 32.22 seconds (2792.22s)
+
+Exec 5: Finished running 43 table models in 0 hours 51 minutes and 51.85 seconds (3111.85s)
+
+
+
 5. Analyze the performance and scalability of execution times of each model. Visualize and discucss the final results.
 
+![img](doc/figures/tbd2b_graph.png)
 
-   
+Korzystając z dwóch executorów zamiast jednego, zauważamy wyraźny wzrost wydajności. Natomiast przejście na pięć executorów nie zwiększa już tak znacząco efektywności, za to istotnie podnosi koszty. Różnice trudno przedstawić w formie wizualizacji, ale potwierdzają je czasy wykonania.
+Co ciekawe dla ostatnich testów wydajność 5 executorów znacząco spadła wydłużając tym samym czas wykonania testu.
+
+Obserwując czas wykonania najszybciej wykonuje się na 2, więc koszt jest zdecydowanie większy a zysk czasowy ujemny, więc najelpiej w tym przypadku pozostać na 2 executorach.
+
+![img](doc/figures/tbd2b_diagram.png)
