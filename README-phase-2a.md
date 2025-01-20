@@ -81,19 +81,40 @@ the running instance of your Vertex AI Workbench
 
 7. Explore files created by generator and describe them, including format, content, total size.
 
-   ***Files desccription***
+   Generator umieścił dane ścieżce /tmp/tpc-di.
+   Formaty plików to : .txt, .xml, .csv
+
+   Batch1 wygenerował prawie 10GB plików, Batch2 i Batch3 razem około 200MB
+
+   ![img.png](doc/figures/tbd2a_7_generated_files.png)
+   ![img.png](doc/figures/tbd2a_7_generated_files-2.png)
+   ![img.png](doc/figures/tbd2a_7_generated_files-3.png)
+   
+   W pliku digen_report.txt dostajemy informacje ile rekordów jest wygenerowanych dla każdego batcha.
+   ![img.png](doc/figures/tbd2a_7_generated_files-4.png)
 
 8. Analyze tpcdi.py. What happened in the loading stage?
 
-   ***Your answer***
+   ![img.png](doc/figures/tbd2a_8_bucket-files.png)
+   ![img.png](doc/figures/tbd2a_8_bucket-files-2.png)
+
+   W tym kroku dane zostały przesłane do cloud storage.
 
 9. Using SparkSQL answer: how many table were created in each layer?
 
-   ***SparkSQL command and output***
+   ![img.png](doc/figures/tbd2a_9_tests-run.png)
+   ![img.png](doc/figures/tbd2a_9_tables-1.png)
 
-10. Add some 3 more [dbt tests](https://docs.getdbt.com/docs/build/tests) and explain what you are testing. ***Add new tests to your repository.***
+10. Add some 3 more [dbt tests](https://docs.getdbt.com/docs/build/tests) and explain what you are testing. 
 
-   ***Code and description of your tests***
+
+![img.png](doc/figures/tbd2a_10_old-test.png)
+
+airflow_monitoring – sprawdza ogólną kondycję środowiska Airflow (np. czy zadania startują i wykonują się zgodnie z harmonogramem).
+
+composer_sample_dbt_task – demonstruje integrację z DBT (Data Build Tool), weryfikując, czy można poprawnie uruchamiać i monitorować procesy przetwarzania danych przy użyciu DBT w Airflow.
+
+dataproc_job – testuje możliwość zlecania zadań do Dataproc, czyli czy Airflow potrafi prawidłowo nawiązać komunikację i uruchamiać joby w klastrze Dataproc.
 
 11. In main.tf update
    ```
@@ -104,4 +125,4 @@ the running instance of your Vertex AI Workbench
 
 12. Redeploy infrastructure and check if the DAG finished with no errors:
 
-***The screenshot of Apache Aiflow UI***
+![img.png](doc/figures/tbd2a_10_airflow.png)
