@@ -27,13 +27,13 @@ in profiles.yml.
 
 4. In the notebook, collect console output from dbt run, then parse it and retrieve total execution time and execution times of processing each model. Save the results from each number of executors. 
 
+Łączne czasy wykonania dla różnych wartości parametru spark.executor.instances:
 
-Exec 1: Finished running 43 table models in 1 hours 27 minutes and 44.88 seconds (5264.88s)
+1 Executor: Finished running 43 table models in 1 hours 27 minutes and 44.88 seconds (**5264.88s**)
 
-Exec 2: Finished running 43 table models in 0 hours 46 minutes and 32.22 seconds (2792.22s)
+2 Executors: Finished running 43 table models in 0 hours 46 minutes and 32.22 seconds (**2792.22s**)
 
-Exec 5: Finished running 43 table models in 0 hours 51 minutes and 51.85 seconds (3111.85s)
-
+5 Executors: Finished running 43 table models in 0 hours 51 minutes and 51.85 seconds (**3111.85s**)
 
 
 5. Analyze the performance and scalability of execution times of each model. Visualize and discucss the final results.
